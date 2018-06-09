@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Troy</string>
+    <string name="action_settings">Settings</string>
+    <string name="dialog_wrong_credential">Wrong password or Username</string>
+    <string name="dialog_auth_failed">Authentication failed</string>
+    <string name="title_activity_test">test</string>
+    <string name="welcome_user">Welcome, </string>
+    <string name="bio_description">This is your default Bio, if you want to change it, click the edit button</string>
+    <string name="profile_label_posts">Posts</string>
+    <string name="profile_label_subs">Subscriptions</string>
+    <string name="profile_label_replies">Replies</string>
+    <string name="share">Share your Profile</string>
+</resources>
