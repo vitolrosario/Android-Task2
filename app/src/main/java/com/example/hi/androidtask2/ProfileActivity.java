@@ -51,9 +51,9 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-//        String result = HttpRequest.get("https://api.twitter.com/1/", null, new JsonHttpResponseHandler());
-//
-//        new GeneralClass().showErrorDialog("Test", result, this);
+        String result = HttpRequest.get("https://api.twitter.com/1/", null, new JsonHttpResponseHandler());
+
+        new GeneralClass().showErrorDialog("Test", result, this);
     }
 
     private void shareProfileData(String email){
