@@ -4,11 +4,18 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import static com.example.hi.androidtask2.HttpRequest.get;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -51,9 +58,17 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        String result = HttpRequest.get("https://api.twitter.com/1/", null, new JsonHttpResponseHandler());
+        JSONArray result = HttpRequest.get("http://beca.diplomado.mescyt.gob.do/Convocatoria/GetCiudades?PaisId=187", null, new JsonHttpResponseHandler());
 
-        new GeneralClass().showErrorDialog("Test", result, this);
+        try {
+
+
+            new GeneralClass().showErrorDialog("Test", result.getJSONObject(0).toString("descripcion"), this);
+
+        } catch (JSONException e) {
+            Log.e("MYAPP", "unexpected JSON exception", e);
+        }
+
     }
 
     private void shareProfileData(String email){
