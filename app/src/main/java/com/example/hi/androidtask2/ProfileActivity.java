@@ -7,6 +7,9 @@ import android.support.v7.widget.AppCompatButton;
 import android.view.View;
 import android.widget.TextView;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+
 public class ProfileActivity extends AppCompatActivity {
 
     private final String email_intent = "email";
@@ -48,6 +51,9 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
+//        String result = HttpRequest.get("https://api.twitter.com/1/", null, new JsonHttpResponseHandler());
+//
+//        new GeneralClass().showErrorDialog("Test", result, this);
     }
 
     private void shareProfileData(String email){

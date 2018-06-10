@@ -7,9 +7,9 @@ public class HttpRequest {
 
     private static AsyncHttpClient client = new AsyncHttpClient();
 
-    public static Object get(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
+    public static String get(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
         Object result = client.get(url, params, responseHandler);
-        return result;
+        return result.toString();
     }
 
     public static void post(String url, RequestParams params, AsyncHttpResponseHandler responseHandler) {
