@@ -8,14 +8,20 @@ import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.apptakk.http_request.HttpRequest;
+import com.apptakk.http_request.HttpRequestTask;
+import com.apptakk.http_request.HttpResponse;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestHandle;
+import cz.msebera.android.httpclient.Header;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import static com.example.hi.androidtask2.HttpRequest.get;
+//import static com.example.hi.androidtask2.HttpRequest.get;
+
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -40,6 +46,8 @@ public class ProfileActivity extends AppCompatActivity {
         textViewReplies = findViewById(R.id.textViewReplies);
 
 
+        final GeneralClass generalClass = new GeneralClass();
+
         if(getIntent()!=null && getIntent().getExtras()!= null) {
             email = getIntent().getStringExtra(email_intent);
 
@@ -58,16 +66,31 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
 
-        JSONArray result = HttpRequest.get("http://beca.diplomado.mescyt.gob.do/Convocatoria/GetCiudades?PaisId=187", null, new JsonHttpResponseHandler());
+        /*HttpRequestModel response = HttpRequest.get("http://beca.diplomado.mescyt.gob.do/Convocatoria/GetCiudades?PaisId=187", null);
 
         try {
-
-
-            new GeneralClass().showErrorDialog("Test", result.getJSONObject(0).toString("descripcion"), this);
-
-        } catch (JSONException e) {
-            Log.e("MYAPP", "unexpected JSON exception", e);
+            String test = response.getArray().getJSONObject(0).getString("descripcion");
+            generalClass.showErrorDialog("Test",test, this);
         }
+        catch (Exception e)
+        {
+            generalClass.showErrorDialog("Error",e.getMessage(), this);
+        }*/
+
+        new HttpRequestTask(
+                new HttpRequest("http://beca.diplomado.mescyt.gob.do/Convocatoria/GetCiudades?PaisId=187", HttpRequest.GET, null),
+                new HttpRequest.Handler() {
+                    @Override
+                    public void response(HttpResponse response) {
+                        if (response.code == 200) {
+                            generalClass.showErrorDialog("Test",response.body, ProfileActivity.this);
+                            Log.d(this.getClass().toString(), "Request successful!");
+                        } else {
+                            generalClass.showErrorDialog("Error",response.body, ProfileActivity.this);
+                            Log.e(this.getClass().toString(), "Request unsuccessful: " + response);
+                        }
+                    }
+                }).execute();
 
     }
 
