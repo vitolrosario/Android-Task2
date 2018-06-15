@@ -29,6 +29,10 @@
             android:name=".ForumActivityLeft"
             android:label="Forums"
             android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar"></activity>
+        <activity
+            android:name=".ForumActivityRight"
+            android:label="Forums"
+            android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar"></activity>
     </application>
 
 </manifest>
