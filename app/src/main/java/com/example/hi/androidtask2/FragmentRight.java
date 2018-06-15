@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -24,20 +25,11 @@ public class FragmentRight extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View retView = inflater.inflate(R.layout.fragment_left, container, false);
+        View retView = inflater.inflate(R.layout.fragment_right, container);
 
-        final FragmentActivity fragmentBelongActivity = getActivity();
-
-        if (retView != null)
-        {
-            LinearLayout androidButton = (LinearLayout) retView.findViewById(R.id.btn_android);
-            androidButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    GeneralClass.showErrorDialog("Button", "You clicked android", FragmentRight.super.getContext());
-                    FragmentManager fragmentManager = fragmentBelongActivity.getSupportFragmentManager();
-                }
-            });
+        if(retView!=null) {
+            TextView fragmentRightTextView = (TextView)retView.findViewById(R.id.fragmentRightTextView);
+            fragmentRightTextView.setText("This is the default right fragment.");
         }
         return retView;
     }

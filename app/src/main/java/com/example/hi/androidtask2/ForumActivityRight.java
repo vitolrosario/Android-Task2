@@ -12,7 +12,7 @@ public class ForumActivityRight extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_forum_left);
+        setContentView(R.layout.activity_forum_right);
     }
 
     public void startActivity(Context ctx, String message)

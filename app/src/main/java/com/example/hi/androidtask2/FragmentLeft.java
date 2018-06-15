@@ -27,7 +27,7 @@ public class FragmentLeft extends Fragment {
                              Bundle savedInstanceState) {
         View retView = inflater.inflate(R.layout.fragment_left, container, false);
 
-        //final FragmentActivity fragmentBelongActivity = getActivity();
+        final FragmentActivity fragmentBelongActivity = getActivity();
 
         if (retView != null)
         {
@@ -36,7 +36,7 @@ public class FragmentLeft extends Fragment {
                 @Override
                 public void onClick(View view) {
 //                    GeneralClass.showErrorDialog("Button", "You clicked android", FragmentLeft.super.getContext());
-                    /*FragmentManager fragmentManager = fragmentBelongActivity.getSupportFragmentManager();
+                    FragmentManager fragmentManager = fragmentBelongActivity.getSupportFragmentManager();
 
                     Fragment rightFragment = fragmentManager.findFragmentById(R.id.fragmentRight);
 
@@ -47,11 +47,11 @@ public class FragmentLeft extends Fragment {
                     }
                     else {
                         // Get the TextView object in right Fragment.
-//                        final TextView rightFragmentTextView = (TextView) rightFragment.getView().findViewById(R.id.fragmentRightTextView);
+                        final TextView rightFragmentTextView = (TextView) rightFragment.getView().findViewById(R.id.fragmentRightTextView);
 
                         // Set text in right Fragment TextView.
-//                        rightFragmentTextView.setText("You click Android button.");
-                    }*/
+                        rightFragmentTextView.setText("You click Android button.");
+                    }
                 }
             });
         }
