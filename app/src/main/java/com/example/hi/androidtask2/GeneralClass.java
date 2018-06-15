@@ -5,7 +5,7 @@ import android.support.v7.app.AlertDialog;
 
 public class GeneralClass {
 
-    public void showErrorDialog(String tittle, String message, Context context){
+    public static void showErrorDialog(String tittle, String message, Context context){
         AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(context);
         dlgAlert.setMessage(message);
         dlgAlert.setTitle(tittle);

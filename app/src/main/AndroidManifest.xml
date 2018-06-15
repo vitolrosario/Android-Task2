@@ -24,9 +24,11 @@
         <activity
             android:name=".ProfileActivity"
             android:label="Profile"
-            android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar">
-        </activity>
-
+            android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar"></activity>
+        <activity
+            android:name=".ForumActivityLeft"
+            android:label="Forums"
+            android:theme="@style/Base.Theme.AppCompat.Light.DarkActionBar"></activity>
     </application>
 
 </manifest>

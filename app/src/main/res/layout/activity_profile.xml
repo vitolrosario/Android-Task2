@@ -154,10 +154,21 @@
            android:layout_height="1dp"/>
 
        <android.support.v7.widget.AppCompatButton
+           android:id="@+id/btn_forum"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="30dp"
+           android:background="@color/colorGrey"
+           android:textColor="@color/colorWhite"
+           android:text="@string/forum"
+           android:layout_gravity="center"
+           android:padding="12dp" />
+
+       <android.support.v7.widget.AppCompatButton
            android:id="@+id/btn_share"
            android:layout_width="match_parent"
            android:layout_height="wrap_content"
-           android:layout_marginTop="50dp"
+           android:layout_marginTop="30dp"
            android:background="@color/colorGrey"
            android:textColor="@color/colorWhite"
            android:text="@string/share"

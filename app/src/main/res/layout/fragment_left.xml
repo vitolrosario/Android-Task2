@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="20dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:weightSum="6"
+        android:id="@+id/btn_android"
+        android:background="?android:attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="2"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/android_logo" />
+
+        <TextView
+            android:textSize="20sp"
+            android:layout_gravity="center_vertical"
+            android:text="@string/forum_label_android"
+            android:textColor="@color/colorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:layout_marginStart="20dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:weightSum="6"
+        android:id="@+id/btn_apple"
+        android:background="?android:attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="2"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/apple_logo" />
+
+        <TextView
+            android:textSize="20sp"
+            android:layout_gravity="center_vertical"
+            android:text="@string/forum_label_apple"
+            android:textColor="@color/colorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:layout_marginStart="20dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        android:weightSum="6"
+        android:id="@+id/btn_windows"
+        android:background="?android:attr/selectableItemBackground">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="2"
+            android:layout_marginStart="20dp"
+            android:src="@drawable/windows_logo" />
+
+        <TextView
+            android:textSize="20sp"
+            android:layout_gravity="center_vertical"
+            android:text="@string/forum_label_windows"
+            android:textColor="@color/colorBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:layout_marginStart="20dp"/>
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
