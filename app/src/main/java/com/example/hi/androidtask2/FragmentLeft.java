@@ -35,25 +35,32 @@ public class FragmentLeft extends Fragment {
             androidButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-//                    GeneralClass.showErrorDialog("Button", "You clicked android", FragmentLeft.super.getContext());
-                    FragmentManager fragmentManager = fragmentBelongActivity.getSupportFragmentManager();
 
-                    Fragment rightFragment = fragmentManager.findFragmentById(R.id.fragmentRight);
-
-                    if(rightFragment == null)
-                    {
-                        ForumActivityRight forumActivityRight = new ForumActivityRight();
-                        forumActivityRight.startActivity(getContext(), "You click Android button.");
-                    }
-                    else {
-                        // Get the TextView object in right Fragment.
-                        final TextView rightFragmentTextView = (TextView) rightFragment.getView().findViewById(R.id.fragmentRightTextView);
-
-                        // Set text in right Fragment TextView.
-                        rightFragmentTextView.setText("You click Android button.");
-                    }
+                    ForumActivityRight forumActivityRight = new ForumActivityRight();
+                    forumActivityRight.startActivity(getContext(), "ANDROID");
                 }
             });
+
+            LinearLayout appleButton = (LinearLayout) retView.findViewById(R.id.btn_apple);
+            appleButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    ForumActivityRight forumActivityRight = new ForumActivityRight();
+                    forumActivityRight.startActivity(getContext(), "IOS");
+                }
+            });
+
+            LinearLayout windowsButton = (LinearLayout) retView.findViewById(R.id.btn_windows);
+            windowsButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    ForumActivityRight forumActivityRight = new ForumActivityRight();
+                    forumActivityRight.startActivity(getContext(), "WINDOWS");
+                }
+            });
+
         }
         return retView;
     }

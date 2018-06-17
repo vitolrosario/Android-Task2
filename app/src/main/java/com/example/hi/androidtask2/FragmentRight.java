@@ -27,10 +27,10 @@ public class FragmentRight extends Fragment {
                              Bundle savedInstanceState) {
         View retView = inflater.inflate(R.layout.fragment_right, container);
 
-        if(retView!=null) {
-            TextView fragmentRightTextView = (TextView)retView.findViewById(R.id.fragmentRightTextView);
-            fragmentRightTextView.setText("This is the default right fragment.");
-        }
+//        if(retView!=null) {
+//            TextView fragmentRightTextView = (TextView)retView.findViewById(R.id.fragmentRightTextView);
+//            fragmentRightTextView.setText("This is the default right fragment.");
+//        }
         return retView;
     }
 
