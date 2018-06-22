@@ -20,6 +20,27 @@ public class ForumActivityRight extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum_right);
 
+        fillDevices();
+
+    }
+
+    public void startActivity(Context ctx, String message)
+    {
+        if (GeneralClass.isPortrait(getApplicationContext()))
+        {
+            Intent intent  = new Intent(ctx, ForumActivityRight.class);
+            intent.putExtra(INTENT_DEVICE_TYPE, message);
+            ctx.startActivity(intent);
+        }
+        else
+        {
+            fillDevices();
+        }
+
+    }
+
+    public void fillDevices()
+    {
         Intent intent = getIntent();
         String deviceType = intent.getStringExtra(INTENT_DEVICE_TYPE);
 
@@ -31,13 +52,5 @@ public class ForumActivityRight extends AppCompatActivity {
         DevicesAdapter adapter = new DevicesAdapter(devices);
         rvDevices.setAdapter(adapter);
         rvDevices.setLayoutManager(new LinearLayoutManager(this));
-
-    }
-
-    public void startActivity(Context ctx, String message)
-    {
-        Intent intent  = new Intent(ctx, ForumActivityRight.class);
-        intent.putExtra(INTENT_DEVICE_TYPE, message);
-        ctx.startActivity(intent);
     }
 }
