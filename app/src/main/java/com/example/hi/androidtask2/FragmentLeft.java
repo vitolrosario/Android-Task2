@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +24,7 @@ public class FragmentLeft extends Fragment {
         // Required empty public constructor
     }
 
+    private static FragmentTransaction fragmentTransaction = null;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -36,9 +39,9 @@ public class FragmentLeft extends Fragment {
             androidButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     ForumActivityRight forumActivityRight = new ForumActivityRight();
-                    forumActivityRight.startActivity(getContext(), "ANDROID");
+                    fragmentTransaction = getFragmentManager().beginTransaction();
+                    forumActivityRight.startActivity(getContext(), fragmentTransaction, "ANDROID");
                 }
             });
 
@@ -46,9 +49,9 @@ public class FragmentLeft extends Fragment {
             appleButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     ForumActivityRight forumActivityRight = new ForumActivityRight();
-                    forumActivityRight.startActivity(getContext(), "IOS");
+                    fragmentTransaction = getFragmentManager().beginTransaction();
+                    forumActivityRight.startActivity(getContext(),fragmentTransaction,  "IOS");
                 }
             });
 
@@ -56,9 +59,9 @@ public class FragmentLeft extends Fragment {
             windowsButton.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     ForumActivityRight forumActivityRight = new ForumActivityRight();
-                    forumActivityRight.startActivity(getContext(), "WINDOWS");
+                    fragmentTransaction = getFragmentManager().beginTransaction();
+                    forumActivityRight.startActivity(getContext(),fragmentTransaction,  "WINDOWS");
                 }
             });
 

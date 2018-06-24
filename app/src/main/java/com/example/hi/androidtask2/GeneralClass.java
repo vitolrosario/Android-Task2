@@ -16,8 +16,8 @@ public class GeneralClass {
 
     //Check if device is in portrait mode
     public static boolean isPortrait(Context context) {
-
         return context.getResources().getBoolean(R.bool.is_portrait);
     }
+
 
 }

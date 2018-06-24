@@ -2,10 +2,15 @@ package com.example.hi.androidtask2;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.res.Configuration;
 import android.os.Bundle;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -20,13 +25,14 @@ public class ForumActivityRight extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forum_right);
 
-        fillDevices();
+        Intent intent = getIntent();
+        fillDevices(intent.getStringExtra(INTENT_DEVICE_TYPE));
 
     }
 
-    public void startActivity(Context ctx, String message)
+    public void startActivity(Context ctx, FragmentTransaction ft, String message)
     {
-        if (GeneralClass.isPortrait(getApplicationContext()))
+        if (GeneralClass.isPortrait(ctx))
         {
             Intent intent  = new Intent(ctx, ForumActivityRight.class);
             intent.putExtra(INTENT_DEVICE_TYPE, message);
@@ -34,15 +40,22 @@ public class ForumActivityRight extends AppCompatActivity {
         }
         else
         {
-            fillDevices();
+//            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            ft.replace(R.id.devices_cointainer, new FragmentRight());
+            ft.commit();
+
+            fillDevices(message);
         }
 
     }
 
-    public void fillDevices()
+    public void fillDevices(String deviceType)
     {
-        Intent intent = getIntent();
-        String deviceType = intent.getStringExtra(INTENT_DEVICE_TYPE);
+        if (deviceType.isEmpty())
+        {
+            Intent intent = getIntent();
+            deviceType = intent.getStringExtra(INTENT_DEVICE_TYPE);
+        }
 
         RecyclerView rvDevices = (RecyclerView) findViewById(R.id.rvDevices);
         TextView deviceTypeTextView = (TextView) findViewById(R.id.device_type);
