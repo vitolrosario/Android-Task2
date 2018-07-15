@@ -26,11 +26,11 @@ public class ForumActivityRight extends AppCompatActivity {
         setContentView(R.layout.activity_forum_right);
 
         Intent intent = getIntent();
-        fillDevices(intent.getStringExtra(INTENT_DEVICE_TYPE));
+        fillDevices(intent.getStringExtra(INTENT_DEVICE_TYPE), null);
 
     }
 
-    public void startActivity(Context ctx, FragmentTransaction ft, String message)
+    public void startActivity(Context ctx, FragmentTransaction ft, String message, View view)
     {
         if (GeneralClass.isPortrait(ctx))
         {
@@ -40,16 +40,15 @@ public class ForumActivityRight extends AppCompatActivity {
         }
         else
         {
-//            FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.replace(R.id.devices_cointainer, new FragmentRight());
-            ft.commit();
-
-            fillDevices(message);
+            //FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            //ft.replace(R.id.devices_cointainer, new FragmentRight());
+            //ft.commit();
+            fillDevices(message, view);
         }
 
     }
 
-    public void fillDevices(String deviceType)
+    public void fillDevices(String deviceType, View view)
     {
         if (deviceType.isEmpty())
         {
@@ -57,8 +56,21 @@ public class ForumActivityRight extends AppCompatActivity {
             deviceType = intent.getStringExtra(INTENT_DEVICE_TYPE);
         }
 
-        RecyclerView rvDevices = (RecyclerView) findViewById(R.id.rvDevices);
-        TextView deviceTypeTextView = (TextView) findViewById(R.id.device_type);
+        RecyclerView rvDevices = null;
+        TextView deviceTypeTextView = null;
+
+        if (view == null)
+        {
+            rvDevices = (RecyclerView) findViewById(R.id.rvDevices);
+            deviceTypeTextView = (TextView) findViewById(R.id.device_type);
+
+        }
+        else
+        {
+            rvDevices = (RecyclerView) view.findViewById(R.id.rvDevices);
+            deviceTypeTextView = (TextView) view.findViewById(R.id.device_type);
+        }
+
         deviceTypeTextView.setText(deviceType + " DEVICES");
 
         devices = Devices.createDevicesList(deviceType);

@@ -1,6 +1,8 @@
 package com.example.hi.androidtask2;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
@@ -37,17 +39,18 @@ public class ProfileActivity extends AppCompatActivity {
         textViewSubs = findViewById(R.id.textViewSubs);
         textViewReplies = findViewById(R.id.textViewReplies);
 
+        SharedPreferences mSettings = getSharedPreferences("Settings", Context.MODE_PRIVATE);
+        email = mSettings.getString(GeneralClass.Values.emailLogged, null);
+        textViewLoggedUser.setText("Welcome, " + email);
 
-//        final GeneralClass generalClass = new GeneralClass();
-
-        if(getIntent()!=null && getIntent().getExtras()!= null) {
+        /*if(getIntent()!=null && getIntent().getExtras()!= null) {
             email = getIntent().getStringExtra(email_intent);
 
             if (email != null)
             {
                 textViewLoggedUser.setText("Welcome, " + email);
             }
-        }
+        }*/
 
         buttonShare = findViewById(R.id.btn_share);
 

@@ -19,5 +19,10 @@ public class GeneralClass {
         return context.getResources().getBoolean(R.bool.is_portrait);
     }
 
+    public static class Values {
+        public static String emailLogged = "EMAIL_LOGGED";
+        public static String islogged = "IS_LOGGED";
+    }
+
 
 }

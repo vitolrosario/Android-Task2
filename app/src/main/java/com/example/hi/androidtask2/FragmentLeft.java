@@ -30,7 +30,7 @@ public class FragmentLeft extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View retView = inflater.inflate(R.layout.fragment_left, container, false);
-
+        final ViewGroup rootView = container.;
         final FragmentActivity fragmentBelongActivity = getActivity();
 
         if (retView != null)
@@ -41,7 +41,7 @@ public class FragmentLeft extends Fragment {
                 public void onClick(View view) {
                     ForumActivityRight forumActivityRight = new ForumActivityRight();
                     fragmentTransaction = getFragmentManager().beginTransaction();
-                    forumActivityRight.startActivity(getContext(), fragmentTransaction, "ANDROID");
+                    forumActivityRight.startActivity(getContext(), fragmentTransaction, "ANDROID", rootView);
                 }
             });
 
@@ -51,7 +51,7 @@ public class FragmentLeft extends Fragment {
                 public void onClick(View view) {
                     ForumActivityRight forumActivityRight = new ForumActivityRight();
                     fragmentTransaction = getFragmentManager().beginTransaction();
-                    forumActivityRight.startActivity(getContext(),fragmentTransaction,  "IOS");
+                    forumActivityRight.startActivity(getContext(),fragmentTransaction,  "IOS", rootView);
                 }
             });
 
@@ -61,7 +61,7 @@ public class FragmentLeft extends Fragment {
                 public void onClick(View view) {
                     ForumActivityRight forumActivityRight = new ForumActivityRight();
                     fragmentTransaction = getFragmentManager().beginTransaction();
-                    forumActivityRight.startActivity(getContext(),fragmentTransaction,  "WINDOWS");
+                    forumActivityRight.startActivity(getContext(),fragmentTransaction,  "WINDOWS", rootView);
                 }
             });
 
